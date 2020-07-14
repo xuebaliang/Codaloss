@@ -7,23 +7,35 @@ One essential step in the analysis of microbiome compositional data is inferring
 
 Requirement
 ------
-gtools //
-MASS //
-dplyr //
-huge(1.2.7 version) //
-Rcpp //
-ROCR //
-clime //
+gtools 
+
+MASS 
+
+dplyr 
+
+huge(1.2.7 version) 
+
+Rcpp 
+
+ROCR 
+
+clime 
+
 ...
 
 R files in codaloss
 -----
-basical_coda.R -> solutions for some basical optimization ploblems. //
-convenientfunc.R -> some functions for checking parameters, evaluation and ... //
-updatefunc.R -> updation functions for solving codaloss. //
-codalosscv.R -> cross validation for codaloss. //
-codaloss.R -> main function. //
-symmatrix.cpp, update.cpp -> some heavy matrix calculation. //
+basical_coda.R -> solutions for some basical optimization ploblems. 
+
+convenientfunc.R -> some functions for checking parameters, evaluation and ... 
+
+updatefunc.R -> updation functions for solving codaloss. 
+
+codalosscv.R -> cross validation for codaloss. 
+
+codaloss.R -> main function. 
+
+symmatrix.cpp, update.cpp -> some heavy matrix calculation. 
 
 Example
 -----

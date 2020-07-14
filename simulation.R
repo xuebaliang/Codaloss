@@ -12,7 +12,7 @@ library(clime)
 
 path0 = getwd()
 setwd(path0)
-source(paste0(path0, "\\gCoda-master\\gcoda.R"))
+source(paste0(path0, "\\gCoda-master\\R\\gcoda.R"))
 path1 = paste0(path0, "\\SpiecEasi-master\\R")
 setwd(path1)
 for(f in list.files(path1)){

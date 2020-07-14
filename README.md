@@ -73,6 +73,10 @@ Theta bias result
 
 [6,] "scalefree"  "200"  "50"  "5.6554"  "1503.0662"  "31.1912"       "4.2624"  "3.0337"  "2.9165"  "2.7099"
 
-Choices for codaloss
+Usage for codaloss
 -----
+As you can see in the line 296-332 in "simulation.R" file, codaloss need the users to provide the compositional data as the input. Codaloss would first use the cross validation procedure to obtain the optimal lasso penalty parameter "weightoptlambda" and then run the whole model again to get the final estimation of precision matrix "Theta". The "geteval" function could supply some evaluation indexes, like AUC, Thetabias, codabias and invbias. Lastly, we would make the whole codes into a R package, and then it will be released. 
 
+Contributing
+-----
+Authors email: clandzyy@pku.edu.cn; heshun@pku.edu.cn.

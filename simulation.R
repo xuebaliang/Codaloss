@@ -305,7 +305,7 @@ onesim = function(Sigma, Theta, mu, p, n, seed, model, simple = TRUE){
   
   #choose lambda for weighted penalty
   pweight = 1 / abs(nopenalty$Theta)
-  pweight = (p * p / sum(pweight)) * pweight * 100
+  pweight = (p * p / sum(pweight)) * pweight 
   weightcv = codaloss_cv(data = data, folds = 5, foldid = NULL,
                          kappaseq = c(1), lambdaratio = 1e-05, maxnlambda = 30,
                          pweight = pweight, museq = c(0), seed = 1,

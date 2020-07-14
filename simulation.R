@@ -389,10 +389,22 @@ climesim = function(Sigma, Theta, mu, p, n, seed, model, simple = TRUE){
 }
 
 
-net = simnetwork(p = 50, model = "band", seed = 1)
-for(n in c(25, 100, 200, 500)){
-  a = glassosim(Sigma = net$Sigma, Theta = net$Theta, mu = net$mu, p = 50, n = n, seed = 1, model = "band", simple = TRUE)
-  b = climesim(Sigma = net$Sigma, Theta = net$Theta, mu = net$mu, p = 50, n = n, seed = 1, model = "band", simple = TRUE)
-  c = onesim(Sigma = net$Sigma, Theta = net$Theta, mu = net$mu, p = 50, n = n, seed = 1, model = "band", simple = TRUE)
+n = 200
+p = 50
+AUC_result = c()
+Thetabias_result = c()
+for(model in c("random", "neighbor", "band", "hub", "block", "scalefree")){
+  net = simnetwork(p = p, model = model, seed = 1)
+  a = glassosim(Sigma = net$Sigma, Theta = net$Theta, mu = net$mu, p = p, n = n, seed = 1, model = model, simple = TRUE)
+  b = climesim(Sigma = net$Sigma, Theta = net$Theta, mu = net$mu, p = p, n = n, seed = 1, model = model, simple = TRUE)
+  c = onesim(Sigma = net$Sigma, Theta = net$Theta, mu = net$mu, p = p, n = n, seed = 1, model = model, simple = TRUE)
+  AUC_result = rbind(AUC_result, c(model, n, p, round(a$AUC_vector, 4), round(b$AUC_vector, 4), round(c$AUC_vector, 4)))
+  Thetabias_result = rbind(Thetabias_result, c(model, n, p, round(a$thetabias_vector, 4), round(b$thetabias_vector, 4), round(c$thetabias_vector, 4)))
+  print(AUC_result)
+  print(Thetabias_result)
 }
+colnames(AUC_result)= c("network", "n", "p", "glasso", "clime", "SPIEC-EASI(gl)", "gCoda", "CDtrace", "CDtr", "codaloss")
+colnames(Thetabias_result) = c("network", "n", "p", "glasso", "clime", "SPIEC-EASI(gl)", "gCoda", "CDtrace", "CDtr", "codaloss")
+print(AUC_result)
+print(Thetabias_result)
 

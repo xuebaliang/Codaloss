@@ -77,6 +77,10 @@ Usage for codaloss
 -----
 As you can see in the line 296-332 in "simulation.R" file, codaloss need the users to provide the compositional data as the input. Codaloss would first use the cross validation procedure to obtain the optimal lasso penalty parameter "weightoptlambda" and then run the whole model again to get the final estimation of precision matrix "Theta". The "geteval" function could supply some evaluation indexes, like AUC, Thetabias, codabias and invbias. Lastly, we would make the whole codes into a R package, and then it will be released. 
 
+Reference
+-----
+Our paper is published in Journal of Bioinformatics and Computational Biology. The details can be seen in <a href="https://www.worldscientific.com/doi/10.1142/S0219720020500377">article</a>. Please consider citing it.
+
 Contributing
 -----
 Authors email: clandzyy@pku.edu.cn; heshun@pku.edu.cn.
